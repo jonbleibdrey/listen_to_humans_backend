@@ -7,7 +7,7 @@ class ReviewsController < ApplicationController
 
     render json: @reviews
   end
-
+  #pickles
   # GET /reviews/1
   def show
     render json: @review

@@ -1,4 +1,4 @@
 class Audible < ApplicationRecord
-    belong_to :user
-    belong_to :review
+    belongs_to :user
+    belongs_to :review
 end

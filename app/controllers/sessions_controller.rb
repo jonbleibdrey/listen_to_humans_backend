@@ -4,7 +4,7 @@ class SessionsController < ApplicationController
       user = User.where(email: params[:email]).first
   
       if user&.valid_password?(params[:password])
-        render json: user.as_json(only: [:email]), status: :created
+        render json: user.as_json(only: [:email, :authentication_token]), status: :created
       else
         head(:unauthorized)
       end
@@ -12,7 +12,12 @@ class SessionsController < ApplicationController
   
     # DELETE /users/1
     def destroy
-      @user.destroy
+        current_user&.authentication_token = nil
+        if current_user.save
+            head(:ok)
+        else
+            head(:unauthorized)
+        end
     end
   
     # private

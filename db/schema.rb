@@ -10,42 +10,25 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_01_25_184200) do
+ActiveRecord::Schema.define(version: 2021_01_15_192621) do
 
   create_table "audibles", force: :cascade do |t|
     t.string "title"
     t.string "by"
     t.string "language"
-    t.string "audio"
-    t.integer "user_id"
-    t.integer "review_id"
+    t.string "audio_file"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["review_id"], name: "index_audibles_on_review_id"
-    t.index ["user_id"], name: "index_audibles_on_user_id"
   end
 
   create_table "reviews", force: :cascade do |t|
     t.string "title"
     t.string "description"
     t.integer "rating"
+    t.integer "audible_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-  end
-
-  create_table "users", force: :cascade do |t|
-    t.string "name"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.string "email", default: "", null: false
-    t.string "encrypted_password", default: "", null: false
-    t.string "reset_password_token"
-    t.datetime "reset_password_sent_at"
-    t.datetime "remember_created_at"
-    t.string "authentication_token", limit: 30
-    t.index ["authentication_token"], name: "index_users_on_authentication_token", unique: true
-    t.index ["email"], name: "index_users_on_email", unique: true
-    t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
+    t.index ["audible_id"], name: "index_reviews_on_audible_id"
   end
 
 end

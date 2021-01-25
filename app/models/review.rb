@@ -1,4 +1,4 @@
 class Review < ApplicationRecord
-    has_many :audibles
-    has_many :users, through: :audibles
+ belongs_to :audible
+    
 end

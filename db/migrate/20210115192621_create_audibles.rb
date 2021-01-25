@@ -4,9 +4,8 @@ class CreateAudibles < ActiveRecord::Migration[6.0]
       t.string :title
       t.string :by
       t.string :language
-      t.string :audio
-      t.belongs_to :user
-      t.belongs_to :review
+      t.string :audio_file
+      
 
       t.timestamps
     end

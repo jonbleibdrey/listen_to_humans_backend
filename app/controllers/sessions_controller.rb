@@ -1,12 +1,12 @@
 class SessionsController < ApplicationController
     # POST /users
     def create
-      @user = User.new(user_params)
+      user = User.where(email: params[:email]).first
   
-      if @user.save
-        render json: @user, status: :created, location: @user
+      if user&.valid_password?(params[:password])
+        render json: user.as_json(only: [:email]), status: :created
       else
-        render json: @user.errors, status: :unprocessable_entity
+        head(:unauthorized)
       end
     end
   

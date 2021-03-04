@@ -5,7 +5,7 @@ class ReviewsController < ApplicationController
   def index
     @reviews = Review.all
 
-    render json: @reviews
+    render json: @reviews, include:[:audible]
   end
   #pickles
   # GET /reviews/1
@@ -16,7 +16,7 @@ class ReviewsController < ApplicationController
   # POST /reviews
   def create
     @review = Review.new(review_params)
-
+  
     if @review.save
       render json: @review, status: :created, location: @review
     else
@@ -46,6 +46,6 @@ class ReviewsController < ApplicationController
 
     # Only allow a trusted parameter "white list" through.
     def review_params
-      params.require(:review).permit(:title, :description, :rating)
+      params.require(:review).permit(:title, :description, :rating, :audible_id)
     end
 end

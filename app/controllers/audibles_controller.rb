@@ -5,7 +5,7 @@ class AudiblesController < ApplicationController
   def index
     @audibles = Audible.all
 
-    render json: @audibles
+    render json: @audibles, include:[:reviews]
   end
 
   # GET /audibles/1
@@ -46,6 +46,6 @@ class AudiblesController < ApplicationController
 
     # Only allow a trusted parameter "white list" through.
     def audible_params
-      params.require(:audible).permit(:title, :by, :language, :audio, :belongs_to, :belongs_to)
+      params.require(:audible).permit(:title, :by, :language, :audio_file, :belongs_to)
     end
 end

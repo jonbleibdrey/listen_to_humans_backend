@@ -22,7 +22,6 @@ class AudiblesController < ApplicationController
     else
       render json: @audible.errors, status: :unprocessable_entity
     end
-    byebug
   end
   
   # PATCH/PUT /audibles/1

@@ -7,6 +7,8 @@ class CreateAudibles < ActiveRecord::Migration[6.0]
       t.string :audio_file
       
 
+      
+
       t.timestamps
     end
   end

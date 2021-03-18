@@ -4,7 +4,7 @@
 # Examples:
 #
    
+   Audible.create( title: 'test one' , by:"jonbleibdrey", language:"english", audio_file:"some file" )   
    Review.create( title: 'best ever' , description:"it was the best of times it was the worst of times", rating: 2, audible_id:1 )   
-    Audible.create( title: 'fun way to learn math' , by:"jonbleibdrey", language:"english", audio_file:"some file" )   
 
    

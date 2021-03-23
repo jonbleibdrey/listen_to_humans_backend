@@ -36,9 +36,9 @@ group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
 end
 
-# group :production do
-#   gem 'pg', '~> 0.18.4'
-# end
+group :production do
+gem 'pg'
+end
 
 group :development do
   gem 'listen', '~> 3.2'

@@ -15,17 +15,17 @@ local:
 #   bucket: your_own_bucket
 
 #Remember not to checkin your GCS keyfile to a repository
-google:
-  service: GCS
-  project: audibleforhumans
-  credentials: <%= ENV['GOOGLE_APPLICATION_CREDENTIALS'].to_json %>
-  bucket: audio_bucket_name
+# google:
+#   service: GCS
+#   project: audibleforhumans
+#   credentials: <%= ENV['GOOGLE_APPLICATION_CREDENTIALS'].to_json %>
+#   bucket: audio_bucket_name
 
-google_dev:
-  service: GCS
-  project: audibleforhumans
-  credentials: <%= Rails.root.join("config/secrets/audible-sound.json")%>
-  bucket: audio_bucket_name
+# google_dev:
+#   service: GCS
+#   project: audibleforhumans
+#   credentials: <%= Rails.root.join("config/secrets/audible-sound.json")%>
+#   bucket: audio_bucket_name
 # Use rails credentials:edit to set the Azure Storage secret (as azure_storage:storage_access_key)
 # microsoft:
 #   service: AzureStorage
